@@ -5,19 +5,10 @@ class ResponsiveSizeConfig {
   static double _widthFactor = 1;
   static double _arithmeticFactor = 1;
 
-  static int _defaultHeight = 812;
-  static int _defaultWidth = 375;
-
-  static void init(
-    BuildContext context, {
-    int designHeight = 812,
-    int designWidth = 375,
-  }) {
+  static void init(BuildContext context, {required int designHeight, required int designWidth}) {
     final size = MediaQuery.of(context).size;
-    _defaultHeight = designHeight;
-    _defaultWidth = designWidth;
-    _heightFactor = size.height / _defaultHeight;
-    _widthFactor = size.width / _defaultWidth;
+    _heightFactor = size.height / designHeight;
+    _widthFactor = size.width / designWidth;
     _arithmeticFactor = (_heightFactor + _widthFactor) / 2;
   }
 
